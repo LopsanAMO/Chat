@@ -7,7 +7,7 @@ from .models import Room
 
 
 def about(request):
-    return render(request, "chat/about.html")
+    return render(request, "about.html")
 
 
 def new_room(request):
@@ -37,7 +37,7 @@ def chat_room(request, label):
     # We want to show the last 50 messages, ordered most-recent-last
     messages = reversed(room.messages.order_by('-timestamp')[:50])
 
-    return render(request, "chat/room.html", {
+    return render(request, "room.html", {
         'room': room,
         'messages': messages,
     })
